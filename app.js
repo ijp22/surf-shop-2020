@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const createError = require('http-errors');
 const express = require('express');
+const engine = require('ejs-mate');
 const favicon = require('serve-favicon');
 const path = require('path');
 //const bodyParser = require('body-parser');
@@ -34,6 +35,7 @@ db.once('open', function() {
 
 
 // view engine setup
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -59,6 +61,12 @@ passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// title middleware
+app.use(function(req, res, next) {
+  res.locals.title = 'Surf Shop';
+  next();
+});
 
 // Mount routes
 app.use('/', index);
