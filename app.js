@@ -26,7 +26,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 
 //Connect to the database
-mongoose.connect('mongodb://localhost:27017/surf-shop-mapbox', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/surf-shop', {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -66,6 +66,11 @@ passport.deserializeUser(User.deserializeUser());
 
 // set local variables middleware
 app.use(function(req, res, next) {
+  req.user = {
+    '_id' : '5ff9e1e0006eaf1358c58741',
+    'username' : 'ian' 
+  }
+  res.locals.currentUser = req.user;
   // set default page title
   res.locals.title = 'Surf Shop';
   // set success flash message
@@ -97,9 +102,9 @@ app.use(function(err, req, res, next) {
   // render the error page
   //res.status(err.status || 500);
   //res.render('error');
-  console.log(err);
+  //console.log(err);
   req.session.error = err.message;
-  red.redirect('back');
+  res.redirect('back');
 });
 
 module.exports = app;
