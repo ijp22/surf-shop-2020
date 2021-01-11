@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/stylesheets/style.css">
         <link rel="stylesheet" href="/stylesheets/post-show.css">
         <link rel="stylesheet" type="text/css" href="/stylesheets/starability-basic.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -17,7 +18,8 @@
     </body>
 
     <script>
-        var post = <%- JSON.stringify(post) %>;
-    </script>
+		var post = <%- JSON.stringify(post) %>;
+		var mapBoxToken = "<%= mapBoxToken %>";
+	</script>
     <script src="/javascripts/post-show.js"></script>
 </html>
