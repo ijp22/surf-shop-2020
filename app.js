@@ -5,7 +5,6 @@ const express = require('express');
 const engine = require('ejs-mate');
 const favicon = require('serve-favicon');
 const path = require('path');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
@@ -43,13 +42,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 // Configure Passport and Sessions
 app.use(session({
@@ -69,10 +67,10 @@ passport.deserializeUser(User.deserializeUser());
 
 // set local variables middleware
 app.use(function(req, res, next) {
-  req.user = {
-    '_id' : '5ff9e1e0006eaf1358c58741',
-    'username' : 'ian' 
-  }
+  // req.user = {
+  //   '_id' : '5ff9e1e0006eaf1358c58741',
+  //   'username' : 'ian' 
+  // }
   res.locals.currentUser = req.user;
   // set default page title
   res.locals.title = 'Surf Shop';

@@ -20,3 +20,11 @@ a {
 .mapboxgl-popup a {
   text-transform: capitalize;
 }
+
+.color-green {
+  color: green;
+}
+
+.color-red {
+  color: red;
+}
