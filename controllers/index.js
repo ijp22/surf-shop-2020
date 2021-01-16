@@ -13,9 +13,9 @@ module.exports = {
     // GET /
     async landingPage(req, res, next) {
         // find all posts to populate into map
-        const posts = await Post.find({});
-        // render home page and pass in posts
-        res.render('index', { posts, mapBoxToken, title: 'Surf Shop - Home' });
+        const posts = await Post.find({}).sort('-_id').exec();
+        const recentPosts = posts.slice(0, 3);
+        res.render('index', { posts, mapBoxToken, recentPosts, title: 'Surf Shop - Home' });
     },
 
     // GET / register

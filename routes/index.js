@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const { storage } = require('../cloudinary');
 const upload = multer({ storage });
-const { landingPage, getRegister, postRegister, getLogin, postLogin, getLogout, getProfile, updateProfile, getForgotPw, putForgotPw, getReset,putReset } = require('../controllers');
+const { landingPage, getRegister, postRegister, getLogin, postLogin, getLogout, getProfile, updateProfile, getForgotPw, putForgotPw, getReset, putReset } = require('../controllers');
 const { asyncErrorHandler, isLoggedIn, isValidPassword, changePassword } = require('../middleware');
 
 /* GET home/landing page */

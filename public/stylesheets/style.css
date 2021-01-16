@@ -1,11 +1,13 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: steelblue;
+.body {
+  margin: 20px;
 }
 
-a {
-  color: #00b7ff;
+.logo {
+  color: #fff;
+}
+
+.logo:hover {
+  color: #fff;
 }
 
 #map {
