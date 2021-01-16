@@ -15,7 +15,6 @@ const methodOverride = require('method-override');
 // const seedPosts = require('./seeds');
 // seedPosts();
 
-
 // Require Routes
 const index = require('./routes/index');
 const posts = require('./routes/posts');
